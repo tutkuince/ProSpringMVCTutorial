@@ -8,7 +8,16 @@ public class Student {
 	private String lastName;
 	private String country;
 	private String gender;
-	
+	private String programmingLang;
+
+	public String getProgrammingLang() {
+		return programmingLang;
+	}
+
+	public void setProgrammingLang(String programmingLang) {
+		this.programmingLang = programmingLang;
+	}
+
 	public String getGender() {
 		return gender;
 	}

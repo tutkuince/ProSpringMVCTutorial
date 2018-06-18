@@ -34,6 +34,14 @@
 		
 		<br />
 		<br />
+		
+		Favorite Programming Languages
+		Java <form:radiobutton path="programmingLang" value="Java" />
+		C#   <form:radiobutton path="programmingLang" value="C#" />
+		PHP <form:radiobutton path="programmingLang" value="PHP" />
+		C++ <form:radiobutton path="programmingLang" value="C++" />
+		<br />
+		<br />
 		<input type="submit" value="Submit">
 	</form:form>
 </body>
