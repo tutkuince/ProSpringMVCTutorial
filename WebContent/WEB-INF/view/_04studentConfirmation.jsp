@@ -10,6 +10,6 @@
 	<h1>Welcome to world of Spring</h1>
 	<p>First Name: <b>${student.firstName }</b></p>
 	<p>Last Name: <b>${student.lastName }</b></p>
-	
+	<p>Country: <b>${student.country }</b></p>
 </body>
 </html>

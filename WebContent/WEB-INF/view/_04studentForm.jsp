@@ -11,7 +11,20 @@
 	<form:form action="processForm" method="GET" modelAttribute="student">
 		First Name: <form:input path="firstName" />
 		<br />
+		<br />
 		Last Name: <form:input path="lastName" />
+		<br />
+		<br />
+
+		<form:select path="country">
+			<form:option value="Brazil" />
+			<form:option value="Germany" />
+			<form:option value="France" />
+			<form:option value="Turkey" />
+			<form:option value="USA" />
+		</form:select>
+
+		<br />
 		<br />
 		<input type="submit" value="Submit">
 	</form:form>
