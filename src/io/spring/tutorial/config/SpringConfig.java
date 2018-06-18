@@ -1,5 +1,6 @@
 package io.spring.tutorial.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 public class SpringConfig implements WebMvcConfigurer{
 	
 	@Bean
+	@Autowired
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver(); 
 		viewResolver.setPrefix("/WEB-INF/view/");
