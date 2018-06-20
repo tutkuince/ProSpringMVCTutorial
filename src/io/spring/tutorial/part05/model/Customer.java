@@ -13,9 +13,10 @@ public class Customer {
 	@Size(min = 2, message = "last name must be larger than 2")
 	private String lastName;
 
+	@NotNull(message = "is required")
 	@Min(value = 0, message = "must be greater than or equal to zero")
 	@Max(value = 10, message = "must be less than or equal to 10")
-	private int freePasses;
+	private Integer freePasses;	// For null check, Refactored field: changed "int" to "Integer"
 
 	@Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars/digits") // regular expression pattern
 	private String postalCode;
@@ -28,11 +29,11 @@ public class Customer {
 		this.postalCode = postalCode;
 	}
 
-	public int getFreePasses() {
+	public Integer getFreePasses() {
 		return freePasses;
 	}
 
-	public void setFreePasses(int freePasses) {
+	public void setFreePasses(Integer freePasses) {
 		this.freePasses = freePasses;
 	}
 
