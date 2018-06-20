@@ -12,6 +12,6 @@
 	<p>Last Name: <b>${student.lastName }</b></p>
 	<p>Country: <b>${student.country }</b></p>
 	<p>Favorite Programming Language: <b>${student.programmingLang }</b></p>
-	
+	<p>Operating Systems: <b>${student.operatingSystems }</b></p>
 </body>
 </html>

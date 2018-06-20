@@ -31,7 +31,6 @@
 		<form:select path="gender">
 			<form:options items="${student.genderList }" />
 		</form:select>
-
 		<br />
 		<br />
 		
@@ -42,6 +41,14 @@
 		C++ <form:radiobutton path="programmingLang" value="C++" />
 		<br />
 		<br />
+		
+		Which Operating Systems Do You Have Experience with
+		Linux <form:checkbox path="operatingSystems" value="Linux"/> 
+		Mac OS <form:checkbox path="operatingSystems" value="Mac OS"/> 
+		MS Windows <form:checkbox path="operatingSystems" value="MS Windows"/>
+		<br />
+		<br />
+
 		<input type="submit" value="Submit">
 	</form:form>
 </body>

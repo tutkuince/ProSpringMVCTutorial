@@ -9,6 +9,15 @@ public class Student {
 	private String country;
 	private String gender;
 	private String programmingLang;
+	private List<String> operatingSystems;
+
+	public List<String> getOperatingSystems() {
+		return operatingSystems;
+	}
+
+	public void setOperatingSystems(List<String> operatingSystems) {
+		this.operatingSystems = operatingSystems;
+	}
 
 	public String getProgrammingLang() {
 		return programmingLang;
