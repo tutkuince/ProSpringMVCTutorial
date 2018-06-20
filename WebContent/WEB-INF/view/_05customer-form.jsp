@@ -6,6 +6,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+	<style type="text/css">
+		.error {
+			color:red;
+		}
+	</style>
 </head>
 <body>
 	<form:form modelAttribute="customer" action="processForm">
