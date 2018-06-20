@@ -7,7 +7,7 @@ public class Customer {
 	private String firstName;
 
 	@NotNull(message = "is required")	// bean validation API -> hibernate validator
-	@Size(min = 1, message = "is required")
+	@Size(min = 2, message = "last name must be larger than 2")
 	private String lastName;
 
 	public String getFirstName() {
