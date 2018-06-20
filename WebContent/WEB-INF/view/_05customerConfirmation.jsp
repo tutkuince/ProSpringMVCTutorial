@@ -9,5 +9,6 @@
 <body>
 	<h1>Welcome to world of Spring</h1>
 	<p>The customer is confirmed: <b>${customer.firstName }  ${customer.lastName }</b></p>
+	<p>Number of Free Passes: <b>${customer.freePasses }</b></p>
 </body>
 </html>

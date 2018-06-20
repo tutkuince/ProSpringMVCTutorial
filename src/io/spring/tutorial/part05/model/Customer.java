@@ -1,14 +1,28 @@
 package io.spring.tutorial.part05.model;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class Customer {
 	private String firstName;
 
-	@NotNull(message = "is required")	// bean validation API -> hibernate validator
+	@NotNull(message = "is required") // bean validation API -> hibernate validator
 	@Size(min = 2, message = "last name must be larger than 2")
 	private String lastName;
+
+	@Min(value = 0, message = "must be greater than or equal to zero")
+	@Max(value = 10, message = "must be less than or equal to 10")
+	private int freePasses;
+
+	public int getFreePasses() {
+		return freePasses;
+	}
+
+	public void setFreePasses(int freePasses) {
+		this.freePasses = freePasses;
+	}
 
 	public String getFirstName() {
 		return firstName;
