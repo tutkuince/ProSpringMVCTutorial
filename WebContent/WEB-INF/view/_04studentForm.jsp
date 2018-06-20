@@ -29,9 +29,9 @@
 		
 		Gender: 
 		<form:select path="gender">
-			<form:options items="${student.genderList }"/>
+			<form:options items="${student.genderList }" />
 		</form:select>
-		
+
 		<br />
 		<br />
 		
