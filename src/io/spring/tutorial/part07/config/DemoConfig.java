@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
-@EnableAspectJAutoProxy	// Spring AOP Proxy Support
+@EnableAspectJAutoProxy(proxyTargetClass = true) // Spring AOP Proxy Support
 @ComponentScan("io.spring.tutorial.part07")
 public class DemoConfig {
 
