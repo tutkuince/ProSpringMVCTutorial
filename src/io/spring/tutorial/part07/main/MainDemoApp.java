@@ -23,7 +23,7 @@ public class MainDemoApp {
 		accountDAO.addAccount();
 		
 		// call the membership business method
-		membershipDAO.addAccount();
+		membershipDAO.addMember();
 
 		// do it again
        //  System.out.println("\n let's call it again!\n");
