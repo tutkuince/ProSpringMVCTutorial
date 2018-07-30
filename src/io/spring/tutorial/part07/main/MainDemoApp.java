@@ -5,6 +5,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import io.spring.tutorial.part07.config.DemoConfig;
 import io.spring.tutorial.part07.dao.AccountDAO;
 import io.spring.tutorial.part07.dao.AccountDAOImpl;
+import io.spring.tutorial.part07.dao.MembershipDAO;
+import io.spring.tutorial.part07.dao.MembershipDAOImpl;
 
 public class MainDemoApp {
 	public static void main(String[] args) {
@@ -13,15 +15,21 @@ public class MainDemoApp {
 
 		// get the bean from spring container
 		AccountDAO accountDAO = context.getBean("accountDAOImpl", AccountDAOImpl.class);
+		
+		// get membership bean from spring container
+		MembershipDAO membershipDAO = context.getBean("membershipDAOImpl", MembershipDAOImpl.class);
 
 		// call the business method
 		accountDAO.addAccount();
+		
+		// call the membership business method
+		membershipDAO.addAccount();
 
 		// do it again
-		System.out.println("\n let's call it again!\n");
+       //  System.out.println("\n let's call it again!\n");
 
 		// call the business method again
-		accountDAO.addAccount();
+		// accountDAO.addAccount();
 
 		// close the context
 		context.close();
