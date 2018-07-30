@@ -14,5 +14,6 @@ public class PointcutELNotes {
 	 *  Match on method names (using wildcards)
 	 *   + Match methods starting with add in any class
 	 * 	 @Before("execution(public void add*())")
+	 * 	 @Before("execution(* * add*())")
 	 * */
 }
