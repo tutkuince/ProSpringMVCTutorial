@@ -15,5 +15,10 @@ public class PointcutELNotes {
 	 *   + Match methods starting with add in any class
 	 * 	 @Before("execution(public void add*())")
 	 * 	 @Before("execution(* * add*())")
+	 * 
+	 * Parameter Pattern Wildcards
+	 *  + () 	- matches a method with no arguments
+	 *  + (*)	- matches a method with one argument of any type
+	 *  + (..)	- matches a method with 0 or more arguments of any type
 	 * */
 }
