@@ -37,6 +37,14 @@ public class AOPNotes {
 	 * + Too many aspects and app flow is hard to follow
 	 * + Minor performance cost for aspect execution ( run-time weaving )
 	 * 
+	 * Advice Types
+	 *  + Before advice: run before the method
+	 *  + After returning advice: run after the method ( success execution ) 
+	 *  + After throwing advice: run after method ( if exception thrown )
+	 *  + After finally advice: run after the method
+	 *  + Around advice: run before and after method
+	 *  
+	 * 
 	 * 
 	 * */
 }
