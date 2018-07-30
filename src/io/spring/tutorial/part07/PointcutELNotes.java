@@ -10,6 +10,9 @@ public class PointcutELNotes {
 	 *  + Patterns can use wildcards
 	 *  
 	 *  @Before("execution(public void addAccount())")
-	 * 
+	 *  
+	 *  Match on method names (using wildcards)
+	 *   + Match methods starting with add in any class
+	 * 	 @Before("execution(public void add*())")
 	 * */
 }
