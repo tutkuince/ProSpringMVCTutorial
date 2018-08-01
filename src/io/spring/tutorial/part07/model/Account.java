@@ -4,8 +4,16 @@ public class Account {
 	private String name;
 	private String level;
 
-	
-	
+	public Account() {
+
+	}
+
+	public Account(String name, String level) {
+		super();
+		this.name = name;
+		this.level = level;
+	}
+
 	public String getName() {
 		return name;
 	}
