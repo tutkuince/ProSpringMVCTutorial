@@ -7,6 +7,7 @@ import io.spring.tutorial.part07.dao.AccountDAO;
 import io.spring.tutorial.part07.dao.AccountDAOImpl;
 import io.spring.tutorial.part07.dao.MembershipDAO;
 import io.spring.tutorial.part07.dao.MembershipDAOImpl;
+import io.spring.tutorial.part07.model.Account;
 
 public class MainDemoApp {
 	public static void main(String[] args) {
@@ -20,7 +21,7 @@ public class MainDemoApp {
 		MembershipDAO membershipDAO = context.getBean("membershipDAOImpl", MembershipDAOImpl.class);
 
 		// call the business method
-		accountDAO.addAccount();
+		accountDAO.addAccount(new Account());
 		
 		// call the membership business method
 		membershipDAO.addMember();
