@@ -6,7 +6,7 @@ public class PointcutDeclarationsNotes {
 	 * Apply it to multiple advices
 	 * 
 	 * @Pointcut("execution(* io.spring.tutorial.part07.dao.*.*(..))")
-	 * private void forDaoPackage(){}
+	 * private void forDaoPackage(){}   
 	 * 
 	 * */
 }
