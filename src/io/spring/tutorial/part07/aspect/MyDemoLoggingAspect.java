@@ -31,7 +31,7 @@ public class MyDemoLoggingAspect {
 //	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.*(..))")
 //	private void forDaoPackage() {}
 	
-	@Before("forDaoPackageNoGetterSetter()")
+	@Before("io.spring.tutorial.part07.aspect.AOPExpressions.forDaoPackageNoGetterSetter()")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n======>>> Executing @Before advice on addAccount()");
 	}
