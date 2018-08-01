@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -122,5 +123,16 @@ public class MyDemoLoggingAspect {
 		
 		// print out the results of the method call
 		System.out.println("\n======>>> upper result is: " + result);
+	}
+	
+	@AfterThrowing(pointcut = "execution(* io.spring.tutorial.part07.dao.AccountDAOImpl.findAccounts(..))", throwing = "exc")
+	public void afterThrowingFindAccountsAdvice(JoinPoint joinPoint, Throwable exc) {
+
+		// print out which method we are advising on
+		String method = joinPoint.getSignature().toShortString();
+		System.out.println("\n======>>> Executing @AfterThrowing on method: " + method);
+		
+		// log the exception
+		System.out.println("\n======>>> The exception is: " + exc);
 	}
 }
