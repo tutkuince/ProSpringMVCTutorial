@@ -8,5 +8,11 @@ public class PointcutDeclarationsNotes {
 	 * @Pointcut("execution(* io.spring.tutorial.part07.dao.*.*(..))")
 	 * private void forDaoPackage(){}   
 	 * 
+	 * Benefits of Pointcut Declarations
+	 * 
+	 * 	+ Easily reuse pointcut expressions
+	 *  + Update pointcut in one location
+	 *  + Can also share and combine pointcut expressions
+	 * 
 	 * */
 }
