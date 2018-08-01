@@ -26,7 +26,7 @@ public class MyDemoLoggingAspect {
 	
 	// @Before("execution(* add*(io.spring.tutorial.part07.model.Account, . .))")
 	
-	@Before("execution(* io.spring.tutorial.part07.dao.*.*(..))")	// match method in a package -> any method inside the dao classes and methods 
+	@Before("execution(* io.spring.tutorial.part07.dao.*.*(..))")	// match method in a package -> match on dao.AnyClass.AnyMethod 
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n======>>> Executing @Before advice on addAccount()");
 	}
