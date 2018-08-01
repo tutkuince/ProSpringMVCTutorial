@@ -8,6 +8,8 @@ import org.springframework.core.annotation.Order;
 //import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
+import io.spring.tutorial.part07.model.Account;
+
 @Aspect
 @Component
 @Order(1)
@@ -36,15 +38,30 @@ public class MyDemoLoggingAspect {
 //	private void forDaoPackage() {}
 	
 	@Before("io.spring.tutorial.part07.aspect.AOPExpressions.forDaoPackageNoGetterSetter()")
-	public void beforeAddAccountAdvice(JoinPoint joinPoint) {
+	public void beforeAddAccountAdvice(JoinPoint joinPoint) {	// Get the method signature and arguments
 		System.out.println("\n======>>> Executing @Before advice on addAccount()");
 		
 		// display the method signature
 		MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-		
 		System.out.println("Method: " + methodSignature);
 		
 		// display the method arguments
+		// get arguments
+		Object[] args = joinPoint.getArgs();
+		
+		// loop thru arguments
+		for (Object object : args) {
+			System.out.println(object);
+			
+			if(object instanceof Account) {
+				
+				// downcast and print Account specific stuff
+				Account account = (Account) object;
+				
+				System.out.println("Account name: " + account.getName());
+				System.out.println("Account level: " + account.getLevel());
+			}
+		}
 	}
 	
 //	@Before("forDaoPackageNoGetterSetter()")	// reuse of pointcut expression declaration
