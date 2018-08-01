@@ -8,7 +8,7 @@ import io.spring.tutorial.part07.model.Account;
 public class AccountDAOImpl implements AccountDAO {
 
 	@Override
-	public void addAccount(Account account) {
+	public void addAccount(Account account, boolean vipFlag) {
 		System.out.println(getClass() + ": Doing my db work: adding an account");
 	}
 
