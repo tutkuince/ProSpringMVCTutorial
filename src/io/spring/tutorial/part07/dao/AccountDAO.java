@@ -4,4 +4,6 @@ import io.spring.tutorial.part07.model.Account;
 
 public interface AccountDAO {
 	void addAccount(Account account, boolean vipFlag);
+	
+	boolean doWork();
 }
