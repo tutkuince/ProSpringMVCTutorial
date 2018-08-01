@@ -1,5 +1,8 @@
 package io.spring.tutorial.part07.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import io.spring.tutorial.part07.model.Account;
@@ -39,6 +42,23 @@ public class AccountDAOImpl implements AccountDAO {
 	public boolean doWork() {
 		System.out.println(getClass() + ": doWork()");
 		return false;
+	}
+
+	@Override
+	public List<Account> findAccounts() {
+		List<Account> accounts = new ArrayList<>();
+		
+		// create sample accounts
+		Account acc1 = new Account("Tutku", "Platinum");
+		Account acc2 = new Account("Utku", "Silver");
+		Account acc3 = new Account("Emin", "Gold");
+		
+		// add them to account list
+		accounts.add(acc1);
+		accounts.add(acc2);
+		accounts.add(acc3);
+		
+		return accounts;
 	}
 
 }
