@@ -32,15 +32,32 @@ public class MyDemoLoggingAspect {
 	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.*(..))")
 	private void forDaoPackage() {}
 	
-	@Before("forDaoPackage()")
+	@Before("forDaoPackageNoGetterSetter()")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n======>>> Executing @Before advice on addAccount()");
 	}
 	
-	@Before("forDaoPackage()")	// reuse of pointcut expression declaration
+	@Before("forDaoPackageNoGetterSetter()")	// reuse of pointcut expression declaration
 	public void performApiAnalytics() {
 		System.out.println("\n======>>> Performing API analytics");
 	}
 	
+	// create pointcut for getter methods
+	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.get*(..))")
+	public void getter() {
+		System.out.println("\n======>>> getter()");
+	}
+	
+	// create pointcut for setter methods
+	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.set*(..))")
+	public void setter() {
+		System.out.println("\n======>>> setter()");
+	}
+	
+	// create pointcut: include package ... exclude getter/setter
+	@Pointcut("forDaoPackage() && !(getter() || setter())")
+	public void forDaoPackageNoGetterSetter() {
+		
+	}
 	
 }
