@@ -19,7 +19,12 @@ public class MyDemoLoggingAspect {
 	//@Before("execution(public void add*())")	// any match start with add...
 	
 	// @Before("execution(public * add*())")	// any match starts with add and return type
-	@Before("execution(* add*(io.spring.tutorial.part07.model.Account))")	// must use fully qualified class name
+	
+	// @Before("execution(* add*(io.spring.tutorial.part07.model.Account))")	// must use fully qualified class name
+	
+	// @Before("execution(* add*(. .))")	// match on any number of parameters
+	
+	@Before("execution(* add*(io.spring.tutorial.part07.model.Account, . .))")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n======>>> Executing @Before advice on addAccount()");
 	}
