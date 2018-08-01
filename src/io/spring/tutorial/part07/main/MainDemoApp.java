@@ -22,9 +22,11 @@ public class MainDemoApp {
 
 		// call the business method
 		accountDAO.addAccount(new Account(), true);
+		accountDAO.doWork();
 		
 		// call the membership business method
 		membershipDAO.addMember();
+		membershipDAO.goToSleep();
 
 		// do it again
        //  System.out.println("\n let's call it again!\n");
