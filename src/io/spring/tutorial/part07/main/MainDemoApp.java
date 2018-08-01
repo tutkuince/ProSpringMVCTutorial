@@ -20,7 +20,11 @@ public class MainDemoApp {
 		MembershipDAOImpl membershipDAO = context.getBean("membershipDAOImpl", MembershipDAOImpl.class);
 
 		// call the business method
-		accountDAO.addAccount(new Account(), true);
+		Account account = new Account();
+		account.setName("Nortstar");
+		account.setLevel("Platinum");
+		
+		accountDAO.addAccount(account, true);
 		accountDAO.doWork();
 		
 		// call the accountdao getter/setter methods
