@@ -1,6 +1,7 @@
 package io.spring.tutorial.part07.aspect;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -109,5 +110,17 @@ public class MyDemoLoggingAspect {
 		
 		// print out the results of the method call
 		System.out.println("\n======>>> result is: " + result);
+		
+		// let's post-process tha data  ... let's modify it
+		// convert the account names to upper case
+		result = result.stream().map(a -> {
+			Account account = new Account();
+			account.setName(a.getName().toUpperCase());
+			account.setLevel(a.getLevel());
+			return account;
+		}).collect(Collectors.toList());
+		
+		// print out the results of the method call
+		System.out.println("\n======>>> upper result is: " + result);
 	}
 }
