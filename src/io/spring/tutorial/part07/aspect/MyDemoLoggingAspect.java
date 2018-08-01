@@ -2,7 +2,7 @@ package io.spring.tutorial.part07.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+//import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -29,35 +29,40 @@ public class MyDemoLoggingAspect {
 	
 	// @Before("execution(* io.spring.tutorial.part07.dao.*.*(..))")	// match method in a package -> match on dao.AnyClass.AnyMethod
 	
-	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.*(..))")
-	private void forDaoPackage() {}
+//	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.*(..))")
+//	private void forDaoPackage() {}
 	
 	@Before("forDaoPackageNoGetterSetter()")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n======>>> Executing @Before advice on addAccount()");
 	}
 	
-	@Before("forDaoPackageNoGetterSetter()")	// reuse of pointcut expression declaration
-	public void performApiAnalytics() {
-		System.out.println("\n======>>> Performing API analytics");
-	}
+//	@Before("forDaoPackageNoGetterSetter()")	// reuse of pointcut expression declaration
+//	public void performApiAnalytics() {
+//		System.out.println("\n======>>> Performing API analytics");
+//	}
+//	
+//	@Before("forDaoPackageNoGetterSetter()")
+//	public void logToCloudAsync() {
+//		System.out.println("\n======>>> Logging to Cloud in async fashion");
+//	}
 	
-	// create pointcut for getter methods
-	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.get*(..))")
-	public void getter() {
-		System.out.println("\n======>>> getter()");
-	}
-	
-	// create pointcut for setter methods
-	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.set*(..))")
-	public void setter() {
-		System.out.println("\n======>>> setter()");
-	}
-	
-	// create pointcut: include package ... exclude getter/setter
-	@Pointcut("forDaoPackage() && !(getter() || setter())")
-	public void forDaoPackageNoGetterSetter() {
-		
-	}
+//	// create pointcut for getter methods
+//	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.get*(..))")
+//	public void getter() {
+//		System.out.println("\n======>>> getter()");
+//	}
+//	
+//	// create pointcut for setter methods
+//	@Pointcut("execution(* io.spring.tutorial.part07.dao.*.set*(..))")
+//	public void setter() {
+//		System.out.println("\n======>>> setter()");
+//	}
+//	
+//	// create pointcut: include package ... exclude getter/setter
+//	@Pointcut("forDaoPackage() && !(getter() || setter())")
+//	public void forDaoPackageNoGetterSetter() {
+//		
+//	}
 	
 }
