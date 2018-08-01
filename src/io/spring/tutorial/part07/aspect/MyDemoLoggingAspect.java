@@ -24,7 +24,9 @@ public class MyDemoLoggingAspect {
 	
 	// @Before("execution(* add*(. .))")	// match on any number of parameters
 	
-	@Before("execution(* add*(io.spring.tutorial.part07.model.Account, . .))")
+	// @Before("execution(* add*(io.spring.tutorial.part07.model.Account, . .))")
+	
+	@Before("execution(* io.spring.tutorial.part07.dao.*.*(..))")	// match method in a package -> any method inside the dao classes and methods 
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n======>>> Executing @Before advice on addAccount()");
 	}
