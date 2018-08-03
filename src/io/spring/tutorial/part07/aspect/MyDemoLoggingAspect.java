@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -24,7 +25,6 @@ public class MyDemoLoggingAspect {
 
 	// let's start with an @Before advice
 
-	
 	// @Before("execution(public void
 	// io.spring.tutorial.part07.dao.AccountDAOImpl.addAccount())")
 
@@ -104,15 +104,15 @@ public class MyDemoLoggingAspect {
 	// add a new advice for @AfterReturning on the findAccounts method
 	@AfterReturning(pointcut = "execution(* io.spring.tutorial.part07.dao.AccountDAO.findAccounts(..))", returning = "result")
 	public void afterReturningFindAccountsAdvice(JoinPoint joinPoint, List<Account> result) {
-		
+
 		// print out which method we are advising on
 		String method = joinPoint.getSignature().toShortString();
 		System.out.println("\n======>>> Executing @AfterReturning on method: " + method);
-		
+
 		// print out the results of the method call
 		System.out.println("\n======>>> result is: " + result);
-		
-		// let's post-process tha data  ... let's modify it
+
+		// let's post-process tha data ... let's modify it
 		// convert the account names to upper case
 		result = result.stream().map(a -> {
 			Account account = new Account();
@@ -120,19 +120,26 @@ public class MyDemoLoggingAspect {
 			account.setLevel(a.getLevel());
 			return account;
 		}).collect(Collectors.toList());
-		
+
 		// print out the results of the method call
 		System.out.println("\n======>>> upper result is: " + result);
 	}
-	
+
 	@AfterThrowing(pointcut = "execution(* io.spring.tutorial.part07.dao.AccountDAOImpl.findAccounts(..))", throwing = "exc")
 	public void afterThrowingFindAccountsAdvice(JoinPoint joinPoint, Throwable exc) {
 
 		// print out which method we are advising on
 		String method = joinPoint.getSignature().toShortString();
 		System.out.println("\n======>>> Executing @AfterThrowing on method: " + method);
-		
+
 		// log the exception
 		System.out.println("\n======>>> The exception is: " + exc);
+	}
+
+	@After("execution(* io.spring.tutorial.part07.dao.AccountDAOImpl.findAccounts(..))")
+	public void afterFinallyFindAccountsAdvice(JoinPoint joinPoint) {
+		// print out which method we are advising on
+		String method = joinPoint.getSignature().toShortString();
+		System.out.println("\n======>>> Executing @After (finally) on method: " + method);
 	}
 }
