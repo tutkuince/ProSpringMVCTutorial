@@ -4,9 +4,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -141,5 +143,28 @@ public class MyDemoLoggingAspect {
 		// print out which method we are advising on
 		String method = joinPoint.getSignature().toShortString();
 		System.out.println("\n======>>> Executing @After (finally) on method: " + method);
+	}
+
+	@Around("execution(* io.spring.tutorial.part07.service.*.getFortune(..))")
+	public Object aroundGetFortune(ProceedingJoinPoint joinPoint) throws Throwable {
+		
+		// print out method we are advising on
+		String method = joinPoint.getSignature().toShortString();
+		System.out.println("\n======>>> Executing @Around (finally) on method: " + method);
+		
+		// get begin timestamp
+		long begin = System.currentTimeMillis();
+		
+		// now, let's execute the method
+		Object result = joinPoint.proceed(); // -> joinPoint: Handle to target method, .proceed() -> Execute the target method
+		
+		// get end timstamp
+		long end = System.currentTimeMillis();
+		
+		// compute duration and display it
+		long duration = end - begin;
+		System.out.println("\n===>>> Duration: " + duration / 1000.0 + " seconds");
+		
+		return result;
 	}
 }
