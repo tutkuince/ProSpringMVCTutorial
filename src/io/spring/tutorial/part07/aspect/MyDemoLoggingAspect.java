@@ -159,7 +159,15 @@ public class MyDemoLoggingAspect {
 		long begin = System.currentTimeMillis();
 		
 		// now, let's execute the method
-		Object result = joinPoint.proceed(); // -> joinPoint: Handle to target method, .proceed() -> Execute the target method
+		Object result = null;
+		try {
+			result = joinPoint.proceed(); // -> joinPoint: Handle to target method, .proceed() -> Execute the target method
+		} catch (Exception e) {
+			System.out.println("@Around advide: We have a problem " + e);
+			
+			// handle and give default fortune . . . use this approach with caution
+			result  = "Nothing exciting here. Move along!";
+		} 
 		
 		// get end timstamp
 		long end = System.currentTimeMillis();
