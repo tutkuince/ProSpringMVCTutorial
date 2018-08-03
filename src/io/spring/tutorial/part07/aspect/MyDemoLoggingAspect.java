@@ -163,9 +163,10 @@ public class MyDemoLoggingAspect {
 		try {
 			result = joinPoint.proceed(); // -> joinPoint: Handle to target method, .proceed() -> Execute the target method
 		} catch (Exception e) {
-			System.out.println("@Around advide: We have a problem " + e);
+			// log the exception
+			logger.warning("@Around advide: We have a problem " + e);
 			
-			// handle and give default fortune . . . use this approach with caution
+			// handle and give default fortune . . . use this approach with caution // give user a custom message
 			result  = "Nothing exciting here. Move along!";
 		} 
 		
