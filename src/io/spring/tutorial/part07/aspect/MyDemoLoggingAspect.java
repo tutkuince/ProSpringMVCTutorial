@@ -158,25 +158,37 @@ public class MyDemoLoggingAspect {
 		// get begin timestamp
 		long begin = System.currentTimeMillis();
 		
+		// get end timstamp
+		long end;
+		
+		// compute duration and display it
+		long duration;
+		
+		
 		// now, let's execute the method
 		Object result = null;
 		try {
 			result = joinPoint.proceed(); // -> joinPoint: Handle to target method, .proceed() -> Execute the target method
+			end = System.currentTimeMillis();
+			duration = end - begin;
+			logger.info("\n===>>> Duration: " + duration / 1000.0 + " seconds");
+			return result;
 		} catch (Exception e) {
 			// log the exception
 			logger.warning("@Around advide: We have a problem " + e);
 			
 			// handle and give default fortune . . . use this approach with caution // give user a custom message
-			result  = "Nothing exciting here. Move along!";
+			// result  = "Nothing exciting here. Move along!";
+			
+			end = System.currentTimeMillis();
+			duration = end - begin;
+			logger.info("\n===>>> Duration: " + duration / 1000.0 + " seconds");
+			// rethrow exception
+			throw e;
 		} 
 		
-		// get end timstamp
-		long end = System.currentTimeMillis();
 		
-		// compute duration and display it
-		long duration = end - begin;
-		logger.info("\n===>>> Duration: " + duration / 1000.0 + " seconds");
 		
-		return result;
+		
 	}
 }
