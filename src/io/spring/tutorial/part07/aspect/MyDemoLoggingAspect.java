@@ -1,6 +1,7 @@
 package io.spring.tutorial.part07.aspect;
 
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import org.aspectj.lang.JoinPoint;
@@ -22,6 +23,8 @@ import io.spring.tutorial.part07.model.Account;
 @Component
 @Order(1)
 public class MyDemoLoggingAspect {
+	
+	private Logger logger = Logger.getLogger(getClass().getName());
 
 	// this is where we add all of our related advices for logging
 
@@ -150,7 +153,7 @@ public class MyDemoLoggingAspect {
 		
 		// print out method we are advising on
 		String method = joinPoint.getSignature().toShortString();
-		System.out.println("\n======>>> Executing @Around (finally) on method: " + method);
+		logger.info("\n======>>> Executing @Around (finally) on method: " + method);
 		
 		// get begin timestamp
 		long begin = System.currentTimeMillis();
@@ -163,7 +166,7 @@ public class MyDemoLoggingAspect {
 		
 		// compute duration and display it
 		long duration = end - begin;
-		System.out.println("\n===>>> Duration: " + duration / 1000.0 + " seconds");
+		logger.info("\n===>>> Duration: " + duration / 1000.0 + " seconds");
 		
 		return result;
 	}
