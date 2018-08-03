@@ -13,6 +13,12 @@ public class AfterAdviceNotes {
 	 *  + Code to run regardless of method outcome
 	 *  + Encapsulate this functionality in AOP aspect for easy reuse
 	 * 
+	 * @After Advice - Tips
+	 *  + If The @After advices does not have access to the exception
+	 *  	- If you need exception, then use @AfterThrowing advice
+	 *  + The @After advice should be able to run in the case of success or error
+	 *  	- Your code should not depend on happy path or an exception
+	 *  	- Logging/auditing is the easiest case here
 	 * 
 	 * 
 	 */
